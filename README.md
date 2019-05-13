@@ -1,4 +1,4 @@
-# special-engine
+# Sentiment Analysis Model Deployment using Flask
 ## Requirements
 * Flask  
 * Tensorflow  
