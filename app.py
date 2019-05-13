@@ -1,5 +1,5 @@
 import numpy as np
-from flask import Flask, request
+from flask import Flask, request, jsonify
 import keras
 from keras.models import Sequential, Model
 from keras.preprocessing.text import Tokenizer, text_to_word_sequence
@@ -37,7 +37,10 @@ def predict():
     with graph.as_default():
         x = text_preprocessing([req_data])
         y_pred = model.predict(x)
-    return np.array2string(y_pred)
+    return jsonify({
+        "score" : np.array2string(y_pred[0][0])
+        })
+        
         
 if __name__ == '__main__':
 	app.run()
